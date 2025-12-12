@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>학생 목록</title>
+  <style>
+    body { font-family: Arial, "맑은 고딕", sans-serif; padding: 20px; }
+    h1 { color: #333; margin-bottom: 20px; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td {
+      border: 1px solid #ccc;
+      padding: 10px 12px;
+      text-align: left;
+    }
+    th { background-color: #f2f2f2; }
+    tr:nth-child(even) { background-color: #fafafa; }
+  </style>
+</head>
+<body>
+
+  <h1>영화</h1>
+
+  <% 
+    // 학생 배열은 data 변수로 전달된다고 가정
+    const movies = data.boxOfficeResult.weeklyBoxOfficeList;
+  %>
+
+  <% if (Array.isArray(movies)) { %>
+    <table>
+      <thead>
+        <tr>
+          <th>순위</th>
+          <th>영화명</th>
+          <th>개봉일</th>
+          <th>주간 관색수</th>
+          <th>누적 관색수</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% movies.forEach(movies => { %>
+          <tr>
+            <td><%= movies.rank %></td>
+            <td><%= movies.movieNm %></td>
+            <td><%= movies.openDt %></td>
+            <td><%= movies.audiCnt %></td>
+            <td><%= movies.audiAcc %></td>
+          </tr>
+        <% }) %>
+      </tbody>
+    </table>
+  <% } else { %>
+    <p>학생 데이터를 로드할 수 없습니다.</p>
+  <% } %>
+
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function outer(){
+            var out = "outer";
+            function inner(){
+                var inn = "inner";
+                console.log(out);
+                console.log(inn);
+            }
+            inner();
+        }
+        //outer();
+
+        function display(){
+            var outF = "outerF";
+            return (function(){
+                var innF = "innerF";
+                document.write(outF);
+                document.write(innF);
+            });
+        }
+        let result = display();
+        result();
+    
+    </script>
+</body>
+</html>

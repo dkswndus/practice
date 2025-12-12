@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>학생 목록</title>
+  <style>
+    body { font-family: Arial, "맑은 고딕", sans-serif; padding: 20px; }
+    h1 { color: #333; margin-bottom: 20px; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td {
+      border: 1px solid #ccc;
+      padding: 10px 12px;
+      text-align: left;
+    }
+    th { background-color: #f2f2f2; }
+    tr:nth-child(even) { background-color: #fafafa; }
+  </style>
+</head>
+<body>
+
+  <h1>학생 목록</h1>
+
+  <% 
+    // 학생 배열은 data 변수로 전달된다고 가정
+    const students = data;
+  %>
+
+  <% if (Array.isArray(students)) { %>
+    <table>
+      <thead>
+        <tr>
+          <th>이름</th>
+          <th>전공</th>
+          <th>학년</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% students.forEach(student => { %>
+          <tr>
+            <td><%= student.name %></td>
+            <td><%= student.major %></td>
+            <td><%= student.grade %></td>
+          </tr>
+        <% }) %>
+      </tbody>
+    </table>
+  <% } else { %>
+    <p>학생 데이터를 로드할 수 없습니다.</p>
+  <% } %>
+
+</body>
+</html>

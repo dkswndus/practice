@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>게시판 최신 글</title>
+</head>
+<body>
+  <h1>최근 게시글 3개</h1>
+  <hr/>
+
+  <% boardList.forEach(function(post) { %>
+    <div style="margin-bottom: 20px; border-bottom: 1px solid #ccc; padding-bottom: 10px;">
+      <h2><%= post.title %></h2>
+      <p><strong>작성자:</strong> <%= post.writer || '익명' %></p>
+      <p><strong>이메일:</strong> <%= post.email %></p>
+      <p><strong>내용:</strong> <%= post.content %></p>
+      <p><strong>작성일:</strong> <%= post.created.toLocaleString() %></p>
+    </div>
+  <% }); %>
+</body>
+</html>
